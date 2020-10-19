@@ -16,18 +16,18 @@ The traded cash-flows look like:
 
 | ---              | Cash Flows |      t=0 |      t=1 |      t=2 |      --- |      t=T |
 | Beginning of Day |            |          |          |          |          |          |
-|                  |            |          |          |          |      --- |          |
-|                  |            |          |          |          |      --- |          |
-|                  |            |          |          |          |      --- |          |
+|                  | Sell Call option |   ---       |          |          |      --- |          |
+|                  | Buy Stock        |   ---       |          |          |      --- |          |
+|                  | Borrow Cash      |   ---     |          |          |      --- |          |
 | End of Day       |            |          |          |          |          |          |
 |                  | Sell Call option |   +C0       |          |          |      --- |          |
 |                  | Buy Stock        |   -&delta S0       |          |          |      --- |          |
 |                  | Borrow Cash      |   (&delta S0 - C0)     |          |          |      --- |          |
 | Adjustments      |            |          |          |          |          |          |
-|                  |            |          |          |          |      --- |          |
-|                  |            |          |          |          |      --- |          |
+|                  | Buy Stock          | ---        |          |          |      --- |          |
+|                  | Borrow Cash           | ---        |          |          |      --- |          |
 | Portfolio Value  |            |          |          |          |          |          |
-|                  | Short Call option |          |          |          |      --- |          |
-|                  | Stock           |          |          |          |      --- |          |
-|                  | Borrowed Cash           |          |          |          |      --- |          |
+|                  | Short Call option |  -C0       |          |          |      --- |          |
+|                  | Stock           | &delta S0         |          |          |      --- |          |
+|                  | Borrowed Cash   | (C0 - &delta S0)         |          |          |      --- |          |
 |                  | Total      |          |          |          |          |           |
