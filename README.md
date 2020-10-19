@@ -14,20 +14,20 @@ Since the delta-hedging is only valid for small stock price movements, there wil
 
 The traded cash-flows look like:
 
-| ---              | Cash Flows |      t=0 |      t=1 |      t=2 |      --- |      t=T |
+| Cash Flows |      t=0 |      t=1 |      t=2 |      --- |      t=T |
 | Beginning of Day |            |          |          |          |          |          |
-|                  | Sell Call option |   ---       |          |          |      --- |          |
-|                  | Buy Stock        |   ---       |          |          |      --- |          |
-|                  | Borrow Cash      |   ---     |          |          |      --- |          |
+| Sell Call option |   ---       | -C0         |          |      --- |          |
+| Buy Stock        |   ---       | delta0*S0         |          |      --- |          |
+| Borrow Cash      |   ---     | (C0 - delta0*S0)         |          |      --- |          |
 | End of Day       |            |          |          |          |          |          |
-|                  | Sell Call option |   +C0       |          |          |      --- |          |
-|                  | Buy Stock        |   -&delta S0       |          |          |      --- |          |
-|                  | Borrow Cash      |   (&delta S0 - C0)     |          |          |      --- |          |
+| Sell Call option |   +C0       |  -C1        |          |      --- |          |
+| Buy Stock        |   -delta0*S0 | delta0*S1          |          |      --- |          |
+| Borrow Cash      |   (delta0*S0 - C0) | (C0 - delta0*S0)*exp(r dt)          |          |      --- |          |
 | Adjustments      |            |          |          |          |          |          |
-|                  | Buy Stock          | ---        |          |          |      --- |          |
-|                  | Borrow Cash           | ---        |          |          |      --- |          |
+| Buy Stock        | ---        | (delta1 - delta0)*S1         |          |      --- |          |
+| Borrow Cash      | ---        | -(delta1 - delta0)*S1         |          |      --- |         |
 | Portfolio Value  |            |          |          |          |          |          |
-|                  | Short Call option |  -C0       |          |          |      --- |          |
-|                  | Stock           | &delta S0         |          |          |      --- |          |
-|                  | Borrowed Cash   | (C0 - &delta S0)         |          |          |      --- |          |
-|                  | Total      | 0         |          |          |          |           |
+| Short Call option |  -C0       |          |          |      --- |          |
+| Stock            | delta0*S0         |          |          |      --- |          |
+| Borrowed Cash    | (C0 - delta0*S0)         |          |          |      --- |          |
+| Total            | 0         |          |          |          |           |
