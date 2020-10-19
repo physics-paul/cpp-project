@@ -223,7 +223,7 @@ int main()
   // check to see if this is valid.
 
   if (Texp<tN) {
-    std::cout << "The option expiry date is less than the end date." <<
+    std::cout << "The option expiry date is less than the end date. " <<
     "Try again. \n";
     return 0;
   }
@@ -252,7 +252,8 @@ int main()
   nSteps=stop-start;
 
   if (optExpire!=nSteps) {
-    std::cout << "The option expiry date is not valid. Try again. \n";
+    std::cout << "The option expiry date is not valid, because call option prices " <<
+    "are not available for some dates in the range. Try again. \n";
     return 0;
   }
 
