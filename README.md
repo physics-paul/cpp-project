@@ -12,9 +12,9 @@ Finally, the correct number of stocks were bought at each time step to remain de
 
 Since the delta-hedging is only valid for small stock price movements, there will be some error in hedging each period.
 
-The traded cash-flows look like:
+The traded cash-flows and value of the portfolio looks like:
 
-| Cash Flows |      t=0 |      t=1 |      t=2 |      --- |      t=T |
+| Cash Flows |      t=0 |      t=1 |     --- | t=n |
 | Beginning of Day |    |          |          |          |          |          |
 | Sell Call option |   ---       | -C0         |  -C1        |      --- |          |
 | Buy Stock        |   ---       | delta0*S0  | delta1*S1         |      --- |          |
