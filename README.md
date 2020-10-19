@@ -12,7 +12,7 @@ Finally, the correct number of stocks were bought at each time step to remain de
 
 Since the delta-hedging is only valid for small stock price movements, there will be some error in hedging each period.
 
-The traded cash-flows and value of the portfolio looks like:
+The traded cash-flows and value of the portfolio at each time step looks like:
 
 | Cash Flows | t=0 | t=1 | --- | t=n |
 | Beginning of Day | | | | |
@@ -31,3 +31,6 @@ The traded cash-flows and value of the portfolio looks like:
 | Stock            | delta0 S0 | delta1 S1 | --- | delta(n) Sn |
 | Borrowed Cash    | B0 = (C0 - delta0 S0) | B1 = B0 exp(r0 dt) - (delta1 - delta0) S1 | --- | Bn = B(n-1) exp(r(n-1) dt) - (delta(n) - delta(n-1)) Sn |
 | Total            | 0 | delta1 S1 - C1 + B1 | --- | delta(n) S(n) - Cn + Bn |
+
+If we run this simulation for 1000 different runs, then we can get a cumulative hedging error at the end of each time period. Using the parameters S0 = 100, T = 0.4, mu = 0.05, sigma = 0.24, r = 0.025, and N = 100 for a European call option with K = 105 and T = 0.4, then we arrive at a distribution of hedged portfolio values at the end of time T given by:
+
