@@ -34,3 +34,6 @@ The traded cash-flows and value of the portfolio at each time step looks like:
 
 If we run this simulation for 1000 different runs, then we can get a cumulative hedging error at the end of each time period. Using the parameters S0 = 100, T = 0.4, mu = 0.05, sigma = 0.24, r = 0.025, and N = 100 for a European call option with K = 105 and T = 0.4, then we arrive at a distribution of hedged portfolio values at the end of time T given by:
 
+<p align="center">
+  <img width="400" height="300" src="https://raw.githubusercontent.com/physics-paul/cpp-project/master/image.pdf">
+</p>
