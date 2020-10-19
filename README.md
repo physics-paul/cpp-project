@@ -14,20 +14,20 @@ Since the delta-hedging is only valid for small stock price movements, there wil
 
 The traded cash-flows and value of the portfolio looks like:
 
-| Cash Flows |      t=0 |      t=1 |     --- | t=n |
-| Beginning of Day |    |          |          |          |          |          |
-| Sell Call option |   ---       | -C0         |  -C1        |      --- |          |
-| Buy Stock        |   ---       | delta0*S0  | delta1*S1         |      --- |          |
-| Borrow Cash      |   ---     | (C0 - delta0*S0)  | B1          |      --- |          |
-| End of Day       |            |          |          |          |          |          |
-| Sell Call option |   +C0       |  -C1        | -C2         |      --- |          |
-| Buy Stock        |   -delta0*S0 | delta0*S1 | delta1*S2         |      --- |          |
-| Borrow Cash      |   (delta0*S0 - C0) | B0*exp(r dt) | B1*exp(r dt)          |      --- |          |
-| Adjustments      |            |          |          |          |          |          |
-| Buy Stock        | ---        | (delta1 - delta0)*S1 | (delta2 - delta1)*S2         |      --- |          |
-| Borrow Cash      | ---        | -(delta1 - delta0)*S1 | -(delta2 - delta1)*S2        |      --- |         |
-| Portfolio Value  |            |          |          |          |          |          |
-| Short Call option |  -C0       | -C1         | -C2         |      --- |          |
-| Stock            | delta0*S0 | delta1*S1 | delta2*S2 |      --- |          |
-| Borrowed Cash    | B0=(C0 - delta0*S0) | B1=B0*exp(r dt) - (delta1 - delta0)*S1 | B2=B1*exp(r dt) - (delta2 - delta1)*S2  |      --- |          |
-| Total            | 0         | delta1*S1 - C1 + B0*exp(r dt) - (delta1 - delta0)*S1 | delta2*S2 - C2 + B1*exp(r dt) - (delta2 - delta1)*S2         |          |           |
+| Cash Flows | t=0 | t=1 | --- | t=n |
+| Beginning of Day | | | | |
+| Sell Call option | --- | -C0 | --- | -C(n-1) |
+| Buy Stock        | --- | delta0 S0 | --- | delta(n) S(n-1) |
+| Borrow Cash      | --- | (C0 - delta0 S0) | --- | B(n-1) |
+| End of Day       | | | | |
+| Sell Call option | +C0 | -C1 | --- | -Cn |
+| Buy Stock        | -delta0 S0 | delta0 S1 | --- | delta(n) Sn |
+| Borrow Cash      | (delta0 S0 - C0) | B0 exp(r0 dt) | --- | B(n-1) exp(r(n-1) dt) |
+| Adjustments      | | | | | 
+| Buy Stock        | --- | (delta1 - delta0) S1 | --- | (delta(n) - delta(n-1)) S2 |
+| Borrow Cash      | --- | -(delta1 - delta0) S1 | --- | -(delta(n) - delta(n-1)) S2 |
+| Portfolio Value  | | | | |
+| Short Call option | -C0 | -C1 | --- | Cn |
+| Stock            | delta0 S0 | delta1 S1 | --- | delta(n) Sn |
+| Borrowed Cash    | B0 = (C0 - delta0 S0) | B1 = B0 exp(r0 dt) - (delta1 - delta0) S1 | --- | Bn = B(n-1) exp(r(n-1) dt) - (delta(n) - delta(n-1)) Sn |
+| Total            | 0 | delta1 S1 - C1 + B1 | --- | delta(n) S(n) - Cn + Bn |
