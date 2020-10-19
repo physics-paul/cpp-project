@@ -30,4 +30,4 @@ The traded cash-flows look like:
 |                  | Short Call option |  -C0       |          |          |      --- |          |
 |                  | Stock           | &delta S0         |          |          |      --- |          |
 |                  | Borrowed Cash   | (C0 - &delta S0)         |          |          |      --- |          |
-|                  | Total      |          |          |          |          |           |
+|                  | Total      | 0         |          |          |          |           |
