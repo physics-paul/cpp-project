@@ -14,13 +14,20 @@ Since the delta-hedging is only valid for small stock price movements, there wil
 
 The traded cash-flows look like:
 
-| --- | __t=0 | t=1 | t=2 | --- | t=T |
-| Beginning of Day | --- | 
-|  |
-| Beginning of Day | +C0 |	-0.002782	| -0.003579 |	0.526526	| 1.206844	| 1.863234 | 
-| End of Day	|0.061269 |	0.096360 |	0.124626 |	1.513595 |	3.473083 |	6.329492 |
-| End of Day	|0.061269 |	0.096360 |	0.124626 |	1.513595 |	3.473083 |	6.329492 |
-| End of Day	|0.061269 |	0.096360 |	0.124626 |	1.513595 |	3.473083 |	6.329492 |
-| Adjustments |	-0.732448 |	-0.807893	| -0.934338 |	-8.344340	| -19.990874	| -27.465825 |
-| Adjustments |	-0.732448 |	-0.807893	| -0.934338 |	-8.344340	| -19.990874	| -27.465825 |
-| Adjustments |	-0.732448 |	-0.807893	| -0.934338 |	-8.344340	| -19.990874	| -27.465825 |___
+| ---              | Cash Flows |      t=0 |      t=1 |      t=2 |      --- |      t=T |
+| Beginning of Day |            |          |          |          |          |          |
+|                  |            |          |          |          |      --- |          |
+|                  |            |          |          |          |      --- |          |
+|                  |            |          |          |          |      --- |          |
+| End of Day       |            |          |          |          |          |          |
+|                  | Sell Call option |   +C0       |          |          |      --- |          |
+|                  | Buy Stock        |   -&delta S0       |          |          |      --- |          |
+|                  | Borrow Cash      |   (&delta S0 - C0)     |          |          |      --- |          |
+| Adjustments      |            |          |          |          |          |          |
+|                  |            |          |          |          |      --- |          |
+|                  |            |          |          |          |      --- |          |
+| Portfolio Value  |            |          |          |          |          |          |
+|                  | Short Call option |          |          |          |      --- |          |
+|                  | Stock           |          |          |          |      --- |          |
+|                  | Borrowed Cash           |          |          |          |      --- |          |
+|                  | Total      |          |          |          |          |           |
