@@ -49,3 +49,10 @@ The exact procedure outlined in the previous section is exactly the same. Howeve
 The second option is in general more accurate and was chosen in order to calculate the volatility. This was calculated at the end of each day to get the updated delta value to be used in calculating the amount of GOOG stock shares to hedge.
 
 The output of the C++ code is a table with the hedged portfolio value in between the user-specified dates.
+
+### 3.1.  Compilation instructions
+
+In order to compile both C++ scripts, please ensure the latest Boost package is installed. You can find more information about this here.
+To complete section 1.1, please execude the following command:
+
+g++ mainPT1.cpp Option.cpp -l boost_date_time -I/usr/local/include/python3.7
