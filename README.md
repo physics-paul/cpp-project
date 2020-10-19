@@ -1,9 +1,6 @@
 This project seeks to analyze the a dynamic delta hedging strategy where a call option is sold and then delta hedged from a zero-cost hedged portfolio at the starting time. The call option is then dynamically hedged each day to remain net-delta neutral. The hedging error is then calculated and compared against the actual call option value for sample stock price paths using the Black-Scholes equation. Then, the hedging error is compared to the GOOG call option and stock price values.
 
 This project is divided into 3 main parts:
-- 1.1. Testing the delta hedging strategy using the Black-Scholes model
-- 2.1. Testing the delta hedging using GOOG call option data
-- 3.1. Compilation instructions
 
 ### 1.1.  Testing the delta hedging strategy using the Black-Scholes model
 
