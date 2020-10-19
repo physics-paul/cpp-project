@@ -52,7 +52,20 @@ The output of the C++ code is a table with the hedged portfolio value in between
 
 ### 3.1.  Compilation instructions
 
-In order to compile both C++ scripts, please ensure the latest Boost package is installed. You can find more information about this here.
-To complete section 1.1, please execude the following command:
+In order to compile both C++ scripts, please ensure the latest Boost package is installed. You can find more information about this [here](https://www.boost.org/users/download/).
 
-g++ mainPT1.cpp Option.cpp -l boost_date_time -I/usr/local/include/python3.7
+To complete Section 1.1, please execute the following commands:
+
+g++ mainPT1.cpp Option.cpp -l boost_date_time -I/usr/local/include/python3.7 -o mainPT1
+
+./mainPT1
+
+The output file is found in the 'hedgingErrors.csv' file.
+
+To complete Section 2.1, please execute the following command:
+
+g++ mainPT1.cpp Option.cpp -l boost_date_time -I/usr/local/include/python3.7 -o mainPT1
+
+./mainPT2
+
+The output file is found in the 'hedgingResults.csv' file.
