@@ -37,3 +37,15 @@ If we run this simulation for 1000 different runs, then we can get a cumulative 
 <p align="center">
   <img width="400" height="300" src="https://raw.githubusercontent.com/physics-paul/cpp-project/master/image.pdf">
 </p>
+
+### 2.1.  Testing the delta hedging using GOOG call option data
+
+For the second part, the hedging error is calculated using listed option prices on the GOOG stock.
+
+The exact procedure outlined in the previous section is exactly the same. However, there is one wrinkle. In order to calculate the delta of the call option, the volatility of the underlyting must be given. Two methods are proposed to obtain the volatility:
+- use historical volatility from past data
+- use the implied volatility given by call option prices
+
+The second option is in general more accurate and was chosen in order to calculate the volatility. This was calculated at the end of each day to get the updated delta value to be used in calculating the amount of GOOG stock shares to hedge.
+
+The output of the C++ code is a table with the hedged portfolio value in between the user specified dates.
